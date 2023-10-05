@@ -17,13 +17,13 @@ func init() {
 	db.Commit()
 }
 
-func SaveResults(c string, positive, neutral, negative float64) {
+func SaveResults(v string, positive, neutral, negative int) {
 	dsn := "user=postgres password=kanan123 dbname=CommentMood host=localhost port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Could not connect to Database")
 	}
-	comment := models.Comment{Comment: c, Positive: positive, Neutral: neutral, Negative: negative}
+	comment := models.Comment{VideoID: v, Positive: positive, Neutral: neutral, Negative: negative}
 	db.Create(&comment)
 
 }

@@ -3,16 +3,15 @@ package app
 import (
 	"context"
 	"flag"
-	"fmt"
 	"google.golang.org/api/option"
 	"google.golang.org/api/youtube/v3"
 	"log"
 )
 
-func Fetch() []string {
+func Fetch(receivedVideoID string) []string {
 	apiKey := "AIzaSyAuV-ZF-cL1814Cy1Rt37jpEKOLVO4fYFc"
 	var commentSlice []string
-	videoID := flag.String("videoID", "_6lMB7H_6O0", "YouTube Video ID")
+	videoID := flag.String("videoID", receivedVideoID, "YouTube Video ID")
 	flag.Parse()
 
 	ctx := context.Background()
@@ -33,7 +32,6 @@ func Fetch() []string {
 		if err != nil {
 			log.Fatalf("Error retrieving comments: %v", err)
 		}
-		fmt.Println(nextPageToken)
 
 		for _, comment := range commentsResponse.Items {
 			commentText := comment.Snippet.TopLevelComment.Snippet.TextDisplay
