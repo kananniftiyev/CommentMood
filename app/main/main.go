@@ -6,8 +6,10 @@ import (
 )
 
 func main() {
-	comments := app.Fetch("")
+	videoID := "bvlFjrcpD6s"
+	comments := app.Fetch(videoID)
 	fmt.Println(len(comments))
-	//app.SentimentAnalysis(comments)
+	results := app.SentimentAnalysis(&comments, videoID)
+	fmt.Println(results)
 
 }
