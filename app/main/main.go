@@ -8,4 +8,6 @@ import (
 func main() {
 	comments := app.Fetch()
 	fmt.Println(len(comments))
+	app.SentimentAnalysis(comments)
+
 }
