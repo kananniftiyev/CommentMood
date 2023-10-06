@@ -4,15 +4,12 @@
 ## Table of Contents
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
 - [Usage](#usage)
     - [Running the API](#running-the-api)
     - [API Endpoints](#api-endpoints)
 - [Docker](#docker)
 - [Configuration](#configuration)
 - [Docker](#docker)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 ### Prerequisites
