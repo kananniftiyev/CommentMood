@@ -6,4 +6,5 @@ type Comment struct {
 	Positive int
 	Neutral  int
 	Negative int
+	Not      int
 }

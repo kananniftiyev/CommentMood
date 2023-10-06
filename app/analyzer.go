@@ -4,7 +4,7 @@ import (
 	"github.com/jonreiter/govader"
 )
 
-func SentimentAnalysis(c *[]string, v string) map[string]int {
+func SentimentAnalysis(c *[]string) (int, int, int, int) {
 	var (
 		positive int
 		neutral  int
@@ -30,5 +30,5 @@ func SentimentAnalysis(c *[]string, v string) map[string]int {
 	results["neutral"] = neutral
 	results["negative"] = negative
 	results["not"] = not
-	return results
+	return positive, neutral, negative, not
 }

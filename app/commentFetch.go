@@ -2,17 +2,14 @@ package app
 
 import (
 	"context"
-	"flag"
 	"google.golang.org/api/option"
 	"google.golang.org/api/youtube/v3"
 	"log"
 )
 
-func Fetch(receivedVideoID string) []string {
-	apiKey := "AIzaSyAuV-ZF-cL1814Cy1Rt37jpEKOLVO4fYFc"
+// TODO: Make this better, It does not fetch all comments
+func Fetch(apiKey, receivedVideoID string) []string {
 	var commentSlice []string
-	videoID := flag.String("videoID", receivedVideoID, "YouTube Video ID")
-	flag.Parse()
 
 	ctx := context.Background()
 	youtubeService, err := youtube.NewService(ctx, option.WithAPIKey(apiKey))
@@ -24,7 +21,7 @@ func Fetch(receivedVideoID string) []string {
 	var nextPageToken string
 	for {
 		commentsResponse, err := youtubeService.CommentThreads.List([]string{"snippet"}).
-			VideoId(*videoID).
+			VideoId(receivedVideoID).
 			TextFormat("plainText").
 			MaxResults(100). // Adjust the number of comments per page as needed.
 			PageToken(nextPageToken).

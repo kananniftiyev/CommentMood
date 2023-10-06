@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgres://postgres:kanan123@db:5432/CommentMood" # Updated database name and password
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: CommentMood  # Updated database name
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kanan123  # Updated password
+    ports:
+      - "5432:5432"
