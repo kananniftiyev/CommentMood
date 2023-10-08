@@ -7,6 +7,5 @@ import (
 
 func InitializeRoutes(r *chi.Mux) {
 	r.Post("/api/v1/analyze/youtube", handlers.PostVideoID)
-	//r.Post("/api/analyze/instagram", handlers.PostVideoID)
-	//r.Post("/api/analyze/twitch", handlers.PostVideoID)
+	//r.Post("/api/analyze/instagram", handlers.PostInstagramPostID)
 }

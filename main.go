@@ -1,6 +1,8 @@
 package main
 
-import "Sentitube/api"
+import (
+	"Sentitube/api"
+)
 
 func main() {
 	api.Start()

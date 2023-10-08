@@ -19,10 +19,9 @@ func PostVideoID(w http.ResponseWriter, r *http.Request) {
 	err = json.Unmarshal(requestBody, &videoReq)
 	if err != nil {
 		http.Error(w, "Failed to parse JSON request", http.StatusBadRequest)
-		return
 	}
 	requestData := videoReq.VideoID
-	positive, neutral, negative, not := app.Main(requestData)
+	positive, neutral, negative, not := app.GetYoutubeAnalysis(requestData)
 
 	response := models.Response{
 		VideoID:  requestData,
@@ -35,10 +34,14 @@ func PostVideoID(w http.ResponseWriter, r *http.Request) {
 	jsonResponse, err := json.Marshal(response)
 	if err != nil {
 		http.Error(w, "Failed to marshal response", http.StatusInternalServerError)
-		return
 	}
+
 	// Write the JSON response to the client
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(jsonResponse)
+}
+
+func PostInstagramPostID(w http.ResponseWriter, r *http.Request) {
+
 }

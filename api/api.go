@@ -12,7 +12,7 @@ func Start() {
 	// Middleware
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
-
+	r.Use(middleware.CleanPath)
 	// Initialize routes
 	routes.InitializeRoutes(r)
 

@@ -7,7 +7,6 @@ import (
 	"log"
 )
 
-// TODO: Make this better, It does not fetch all comments
 func Fetch(apiKey, receivedVideoID string) []string {
 	var commentSlice []string
 
@@ -42,4 +41,8 @@ func Fetch(apiKey, receivedVideoID string) []string {
 		}
 	}
 	return commentSlice
+}
+
+func FetchInstagram(apiKey, receivedID string) {
+
 }
