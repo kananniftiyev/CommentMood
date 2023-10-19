@@ -11,7 +11,6 @@ func SentimentAnalysis(c *[]string) (int, int, int, int) {
 		negative int
 		not      int
 	)
-	results := make(map[string]int)
 	analyzer := govader.NewSentimentIntensityAnalyzer()
 
 	for _, i := range *c {
@@ -26,9 +25,6 @@ func SentimentAnalysis(c *[]string) (int, int, int, int) {
 			not++
 		}
 	}
-	results["positive"] = positive
-	results["neutral"] = neutral
-	results["negative"] = negative
-	results["not"] = not
+
 	return positive, neutral, negative, not
 }
